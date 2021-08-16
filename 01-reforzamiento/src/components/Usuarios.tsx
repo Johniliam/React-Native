@@ -1,11 +1,28 @@
-import { useEffect } from "react"
+import { User } from '../interfaces/reqRes';
+import { useUsers } from '../hooks/useUsers';
 
 export const Usuarios = () => {
 
-    useEffect(() => {
-        //llamado API
-        
-    }, [])
+    const {users, nextPage, prevPage} = useUsers() //custom hook
+
+    const renderItem = ( user: User ) => {
+        return(
+            <tr key = { user.id.toString() }>
+                <td>
+                    <img 
+                        src={ user.avatar } 
+                        alt={ user.first_name } 
+                        style={{
+                            width: 30,
+                            borderRadius: 100
+                        }}
+                    />
+                </td>
+                <td>{user.first_name} {user.last_name}</td>
+                <td>{user.email}</td>
+            </tr>
+        )
+    }
 
     return (
         <div>
@@ -19,9 +36,27 @@ export const Usuarios = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <h3></h3>
+                    {
+                        users.map( renderItem )
+                    }
                 </tbody>
             </table>
+
+            <button
+                className="btn btn-danger"
+                onClick={ prevPage }
+            >
+                Anterior
+            </button>
+
+            &nbsp;
+
+            <button
+                className="btn btn-primary"
+                onClick={ nextPage }
+            >
+                Siguiente
+            </button>
         </div>
     )
 }
