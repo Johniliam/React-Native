@@ -54,4 +54,10 @@ export const styles = StyleSheet.create({
         marginVertical: 15,
         fontSize: 20,
     },
+    centerTitle:{
+        fontSize: 40,
+        fontWeight: 'bold',
+        marginTop: 20,
+        textAlign: 'center',
+    },
 });

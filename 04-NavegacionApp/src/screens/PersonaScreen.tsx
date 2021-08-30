@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { View, Text } from 'react-native';
 import { styles } from '../theme/appTheme';
 import { StackScreenProps } from '@react-navigation/stack';
 import { useEffect } from 'react';
 import { RootStackParams } from '../navigator/StackNavigator';
+import { AuthContext } from '../context/authContext/AuthContext';
 
 // interface RouteParams {
 //     id: number,
@@ -23,6 +24,12 @@ export const PersonaScreen = ({ route, navigation }: Props ) => {
             title: params.nombre
         })
 
+    }, [])
+
+    const { changeUsername, authState: { isLoggedIn } } = useContext(AuthContext)
+
+    useEffect(() => {
+        isLoggedIn && changeUsername( params.nombre );
     }, [])
 
     return (
