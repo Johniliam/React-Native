@@ -12,7 +12,7 @@ export const HeaderTitle = ({ title }: Props ) => {
     const { top } = useSafeAreaInsets();
 
     return (
-        <View style={{ marginTop: top, marginBottom: 20 }}>
+        <View style={{ marginTop: top + 20, marginBottom: 20 }}>
             <Text style={ styles.title }>{ title }</Text>
         </View>
     )

@@ -15,7 +15,7 @@ export const useAnimation = () => {
                 duration: 300,
                 useNativeDriver: true,
             }
-        ).start( () => console.log('Animacion Terminada') );
+        ).start();
     }
 
     const fadeOut = () => {
