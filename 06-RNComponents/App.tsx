@@ -1,13 +1,38 @@
-import { NavigationContainer } from '@react-navigation/native';
 import React from 'react'
-import { Text, View } from 'react-native'
+import { ThemeProvider } from './src/context/themeContext/ThemeContext';
 import { StackNavigator } from './src/navigator/StackNavigator';
+
+// const customTheme: Theme = {
+//   dark: true,
+//   colors: {
+//     ...DefaultTheme.colors,
+//     // primary: 'string',
+//     // background: 'grey',
+//     // card: 'string',
+//     // text: 'string',
+//     // border: 'string',
+//   }
+// };
+
+interface Props {
+  children: JSX.Element | JSX.Element[]
+}
+
+const AppState =  ({ children }: Props) => {
+  return (
+    <ThemeProvider>
+      { children }
+    </ThemeProvider>
+  )
+}
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <AppState>
       <StackNavigator/>
-    </NavigationContainer>
+    </AppState>
   )
 }
+
+
  export default App;

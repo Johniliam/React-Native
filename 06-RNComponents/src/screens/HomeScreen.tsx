@@ -10,8 +10,6 @@ export const HomeScreen = () => {
     return (
         <View style={{ flex: 1, ...styles.globalMargin }}>
 
-            
-
             <FlatList
                 data={ menuItems }
                 renderItem={ ({ item }) => <FlatListMenuItem menuItem={ item } /> }

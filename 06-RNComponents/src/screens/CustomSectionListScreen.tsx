@@ -42,7 +42,7 @@ export const CustomSectionListScreen = () => {
                 renderItem={ ({ item }) => <Text>{ item }</Text> }
                 stickySectionHeadersEnabled
                 renderSectionHeader={ ({ section:{ casa } }) => (
-                    <View style={{ backgroundColor: '#F2F2F2' }}>
+                    <View style={{ backgroundColor: 'white' }}>
                         <HeaderTitle title={ casa }/>
                     </View>
                 ) }

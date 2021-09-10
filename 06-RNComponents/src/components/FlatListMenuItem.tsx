@@ -1,9 +1,11 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { MenuItem } from '../interfaces/appInterfaces';
+import React, { useContext } from 'react'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+
+import { useNavigation } from '@react-navigation/core';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import { CommonActions, useNavigation } from '@react-navigation/core';
+
+import { ThemeContext } from '../context/themeContext/ThemeContext';
+import { MenuItem } from '../interfaces/appInterfaces';
 
 interface Props{
     menuItem: MenuItem
@@ -11,7 +13,10 @@ interface Props{
 
 export const FlatListMenuItem = ({ menuItem:{ name, icon , component} }: Props ) => {
     
+    const { theme: { colors } } = useContext( ThemeContext );
+
     const navigation = useNavigation();
+    // const { colors } = useTheme();
     
     return (
         <TouchableOpacity
@@ -21,16 +26,19 @@ export const FlatListMenuItem = ({ menuItem:{ name, icon , component} }: Props )
             <View style={ styles.container }>
                 <Icon
                     name={ icon }
-                    color='#5856D6'
+                    color={ colors.primary }
                     size={ 23 }
                 />
-                <Text style={styles.itemContainer}>
+                <Text style={{
+                    ...styles.itemContainer,
+                    color: colors.text
+                }}>
                     { name }
                 </Text>
 
                 <Icon
                     name='chevron-forward-outline'
-                    color='#5856D6'
+                    color={ colors.primary }
                     size={ 23 }
                     style={{ position: 'absolute', right: 5 }}
                 />
@@ -45,6 +53,6 @@ const styles = StyleSheet.create({
     },
     itemContainer:{
         marginLeft: 10,
-        fontSize: 19
+        fontSize: 19,
     },
 });
