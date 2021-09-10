@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, RefreshControl, ToastAndroid } from 'react-native';
 import { HeaderTitle } from '../components/HeaderTitle';
 import { styles } from '../theme/appTheme';
+import { Theme } from '@react-navigation/native';
+import { ThemeContext } from '../context/themeContext/ThemeContext';
 
 export const PullToRefreshScreen = () => {
     
     const [refreshing, setRefreshing] = useState(false)
 
     const [data, setData] = useState<string>()
+
+    const { theme:{ colors } } = useContext(ThemeContext)
 
     const onRefresh = () => {
         setRefreshing(true);
@@ -25,8 +29,8 @@ export const PullToRefreshScreen = () => {
                 <RefreshControl
                     refreshing={ refreshing }
                     onRefresh={ onRefresh }
-                    progressBackgroundColor='purple' //background of refresher
-                    colors={ ['white', 'red', 'blue'] } //sequence of colors in the refresh
+                    progressBackgroundColor={ colors.text } //background of refresher
+                    colors={ [colors.primary] } //sequence of colors in the refresh ['white', 'red', 'blue']
                 />
             }
         >

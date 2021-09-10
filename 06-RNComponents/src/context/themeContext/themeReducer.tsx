@@ -12,13 +12,13 @@ export interface ThemeState extends Theme {
 export const defaultTheme: ThemeState = {
     currentTheme: 'default',
     dark: false,
-    dividerColor: 'rgba(0,0,0,0.7)',
+    dividerColor: 'rgba(0,0,0,0.5)',
     colors: {
-        primary: 'red',
+        primary: '#50B4D8',
         background: 'white',
-        card: 'green',
-        text: 'pink',
-        border: 'orange',
+        card: '#75CEDB',
+        text: 'black',
+        border: 'black',
         notification: 'teal',
     },
 }
@@ -26,7 +26,7 @@ export const defaultTheme: ThemeState = {
 export const darkTheme: ThemeState = {
     currentTheme: 'dark',
     dark: true,
-    dividerColor: 'rgba(0,0,0,0.7)',
+    dividerColor: 'rgba(255,255,255,0.5)',
     colors: {
         primary: '#5856D6',
         background: 'black',
