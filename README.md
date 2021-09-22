@@ -1,5 +1,5 @@
 # React-native
-Workspace to learn React Native
+Workspace to practice React Native
 
 MovieApp
 
